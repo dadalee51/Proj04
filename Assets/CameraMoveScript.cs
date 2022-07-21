@@ -10,31 +10,25 @@ public class CameraMoveScript : MonoBehaviour
     {
         theCamera= gameObject;
         theCamera.transform.rotation*=Quaternion.Euler(0.0f,0.0f,0.0f);
-        theCamera.transform.position+=new Vector3(0,0,5.0f);
+        theCamera.transform.position+=new Vector3(0,0,-15.0f);
     }
 
     // Update is called once per frame
     void Update()
     {
         //Use Keyboard to move the camera
-        if (Input.GetKey("w")) theCamera.transform.position+=new Vector3(0,0,0.1f);
-        if (Input.GetKey("s")) theCamera.transform.position+=new Vector3(0,0,-0.1f);
-        if (Input.GetKey("a")) theCamera.transform.position+=new Vector3(0.1f,0,0);
-        if (Input.GetKey("d")) theCamera.transform.position+=new Vector3(-0.1f,0,0);
-
         if (Input.GetKey("x")) theCamera.transform.position+=new Vector3(0,-0.1f,0);
         if (Input.GetKey("2")) theCamera.transform.position+=new Vector3(0,0.1f,0);
 
-        if (Input.GetKey("f"))theCamera.transform.RotateAround(Vector3.zero, Vector3.up, 100 * Time.deltaTime);
-        if (Input.GetKey("h"))theCamera.transform.RotateAround(Vector3.zero, Vector3.up, -100 * Time.deltaTime);
-        if (Input.GetKey("t")) CentreRotateTransform(theCamera.transform,true);
-        if (Input.GetKey("g")) CentreRotateTransform(theCamera.transform,false);
+        if (Input.GetKey("a"))theCamera.transform.RotateAround(Vector3.zero, Vector3.up, 100 * Time.deltaTime);
+        if (Input.GetKey("d"))theCamera.transform.RotateAround(Vector3.zero, Vector3.up, -100 * Time.deltaTime);
+        if (Input.GetKey("w")) CentreRotateTransform(theCamera.transform,true);
+        if (Input.GetKey("s")) CentreRotateTransform(theCamera.transform,false);
 
         if (Input.GetKey("q")) Application.Quit();
 
         if (Input.GetKey("up")) theCamera.transform.rotation*=Quaternion.Euler(-1.0f,0.0f,0.0f);
-        if (Input.GetKey("down")) theCamera.transform.rotation*=Quaternion.Euler(1.0f,0.0f,0.0f);
-        
+        if (Input.GetKey("down")) theCamera.transform.rotation*=Quaternion.Euler(1.0f,0.0f,0.0f);      
         //Debug.Log("MousePos:"+Input.mousePosition.ToString());
         //Debug.Log("camTrnsRt:"+theCamera.transform.rotation.ToString());
         //Debug.Log("camTrnsPs:"+theCamera.transform.position.ToString());
